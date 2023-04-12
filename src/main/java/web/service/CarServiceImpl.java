@@ -7,20 +7,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class CarServiceImpl implements CarService{
-    private static int CARS_COUNT;
+public class CarServiceImpl implements CarService {
     private List<Car> list;
 
     public CarServiceImpl() {
-       list = new ArrayList<>();
-       list.add(new Car(++CARS_COUNT,"Toyota Camry", 223));
-       list.add(new Car(++CARS_COUNT,"Lexus", 125));
-       list.add(new Car(++CARS_COUNT,"Kia Rio", 352));
-       list.add(new Car(++CARS_COUNT,"Ford Transit", 722));
-       list.add(new Car(++CARS_COUNT,"Volvo", 884));
+        list = new ArrayList<>();
+        list.add(new Car("Toyota Camry", 223));
+        list.add(new Car("Lexus", 125));
+        list.add(new Car("Kia Rio", 352));
+        list.add(new Car("Ford Transit", 722));
+        list.add(new Car("Volvo", 884));
     }
+
     @Override
-    public List<Car> getlistCars(int count) {
-        return list;
+    public List<Car> getlistCars(Integer count) {
+        if (count >= 5) {
+            return list;
+        } else {
+            return list.subList(0, count);
+        }
     }
 }
