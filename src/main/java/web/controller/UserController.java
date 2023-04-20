@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String getNewUser(Model model) {
+    public String newUser(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @GetMapping("/edit")
-    public String updateUser(@ModelAttribute("user") User user) {
+    public String userPage(@ModelAttribute("user") User user) {
         return "updateUser";
     }
 
