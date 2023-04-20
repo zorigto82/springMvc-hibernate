@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String getPerson(Model model) {
+    public String getNewUser(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
@@ -42,8 +42,8 @@ public class UserController {
     }
 
     @GetMapping("/edit")
-    public String edit(@ModelAttribute("user") User user) {
-        return "editUser";
+    public String updateUser(@ModelAttribute("user") User user) {
+        return "updateUser";
     }
 
     @PatchMapping()
